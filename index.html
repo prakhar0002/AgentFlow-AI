@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AgentFlow AI — Agentic Workflow Automation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="brand"><div class="brand-mark">A</div><span>AgentFlow <b>AI</b></span></div>
+    <div class="workspace-label">WORKSPACE</div>
+    <button class="nav-item active"><span>⌂</span> Overview</button>
+    <button class="nav-item" id="templatesNav"><span>▦</span> Templates</button>
+    <button class="nav-item" id="historyNav"><span>◷</span> Run history</button>
+    <div class="sidebar-bottom">
+      <div class="status-card"><span class="status-dot"></span><div><b>System operational</b><small>All agents ready</small></div></div>
+      <div class="user"><div class="avatar">PD</div><div><b>Project Demo</b><small>Student workspace</small></div></div>
+    </div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <div><div class="eyebrow">AUTONOMOUS WORKSPACE</div><h1>Workflow overview</h1></div>
+      <div class="top-actions"><span class="pill"><span class="status-dot"></span> Demo environment</span><button class="icon-btn" title="Notifications">♧</button></div>
+    </header>
+
+    <section class="welcome">
+      <div><div class="eyebrow light">YOUR AI OPERATIONS TEAM</div><h2>Turn complex tasks into<br><em>automated workflows.</em></h2>
+      <p>Give AgentFlow an objective. Its specialized agents will plan, execute, and review the work.</p></div>
+      <div class="orb"><div class="orb-core">✳</div><span class="orbit o1"></span><span class="orbit o2"></span><span class="orbit o3"></span></div>
+    </section>
+
+    <section class="stats">
+      <article class="stat"><div class="stat-icon purple">⌘</div><div><small>Available agents</small><strong>4</strong><span>Specialized roles</span></div></article>
+      <article class="stat"><div class="stat-icon green">↗</div><div><small>Workflows completed</small><strong id="completedCount">0</strong><span>This session</span></div></article>
+      <article class="stat"><div class="stat-icon orange">◷</div><div><small>Average workflow</small><strong>~8 sec</strong><span>Demo execution</span></div></article>
+    </section>
+
+    <section class="workspace-grid">
+      <div class="panel task-panel">
+        <div class="panel-heading"><div><div class="eyebrow">NEW AUTOMATION</div><h3>What should your agents do?</h3></div><span class="spark">✦ AI powered</span></div>
+        <label for="taskInput">WORKFLOW OBJECTIVE</label>
+        <textarea id="taskInput" placeholder="Example: Create a launch plan for a new fitness app, identify the target audience, prepare a marketing checklist, and review the plan."></textarea>
+        <div class="input-footer"><span>Be clear about the outcome you want.</span><span id="charCount">0 / 500</span></div>
+        <div class="examples"><span>Try an example:</span><button class="example" data-task="Plan a social media campaign for a new bakery. Identify the audience, suggest content ideas, create a 7-day schedule, and review the plan.">Marketing plan</button><button class="example" data-task="Organize a college tech event. Create a preparation checklist, divide responsibilities, set a timeline, and identify risks.">Event planning</button><button class="example" data-task="Research ways a small business can improve customer support. Summarize the opportunities and create an action plan.">Business research</button></div>
+        <button class="run-btn" id="runBtn"><span>✦</span> Run agent workflow <span class="arrow">→</span></button>
+        <p class="disclaimer">Demo mode: agents use built-in workflow logic. No external AI API is connected.</p>
+      </div>
+
+      <div class="panel agents-panel">
+        <div class="panel-heading"><div><div class="eyebrow">YOUR TEAM</div><h3>Specialized agents</h3></div><span class="online">● 4 online</span></div>
+        <div class="agent-list">
+          <div class="agent"><div class="agent-icon planner">⌘</div><div class="agent-info"><b>Planner Agent</b><small>Breaks goals into actionable steps</small></div><span class="agent-state" id="state-planner">Ready</span></div>
+          <div class="agent"><div class="agent-icon research">⌕</div><div class="agent-info"><b>Research Agent</b><small>Collects context and key information</small></div><span class="agent-state" id="state-research">Ready</span></div>
+          <div class="agent"><div class="agent-icon execute">⚡</div><div class="agent-info"><b>Execution Agent</b><small>Creates the requested deliverables</small></div><span class="agent-state" id="state-execute">Ready</span></div>
+          <div class="agent"><div class="agent-icon review">✓</div><div class="agent-info"><b>Review Agent</b><small>Checks quality and completeness</small></div><span class="agent-state" id="state-review">Ready</span></div>
+        </div>
+        <div class="agent-note"><span>✧</span> Agents collaborate in sequence and pass context to the next agent.</div>
+      </div>
+    </section>
+
+    <section class="panel execution-panel" id="executionPanel">
+      <div class="panel-heading"><div><div class="eyebrow">LIVE EXECUTION</div><h3>Workflow activity</h3></div><span class="run-status" id="runStatus">Waiting for a task</span></div>
+      <div class="progress-track"><div id="progressBar"></div></div>
+      <div class="timeline" id="timeline">
+        <div class="empty-state"><div class="empty-icon">✳</div><b>Your workflow will appear here</b><span>Enter an objective above and run your first automation.</span></div>
+      </div>
+      <div class="result" id="resultBox" hidden>
+        <div class="result-head"><div><div class="eyebrow">WORKFLOW OUTPUT</div><h3>Generated action plan</h3></div><button class="copy-btn" id="copyBtn">Copy output ↗</button></div>
+        <div id="resultContent" class="result-content"></div>
+      </div>
+    </section>
+    <footer>AgentFlow AI <span>•</span> Academic project demonstration <span>•</span> Built for learning agentic workflows</footer>
+  </main>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
